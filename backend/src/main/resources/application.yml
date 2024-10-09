@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: energyp2p
+  datasource:
+    url: jdbc:mysql://localhost:3306/energy
+    username: root
+    password: ommthegreat
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 8082
+springdoc:
+  api-docs:
+    path: /api-docs
+# Grid Constants
+grid:
+  location: "Chennai"
+  pincode: 600001
+  status: LIVE
+  buyPricePerUnit: 3
+  sellPricePerUnit: 5.5
+  buyPricePerUnitNR: 4
+  capacity: 100000
+  reference: "https://pib.gov.in/PressNoteDetails.aspx?NoteId=153238&ModuleId=3&reg=3&lang=1"
+  noOfAutomaticTransactions: 100
+
+user:
+  initialBalance: 50
+  lamportPerRupeee: 2039280

@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0.27
+    container_name: energy-p2p-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ommthegreat
+      MYSQL_DATABASE: energy
+      MYSQL_USER: energyuser
+      MYSQL_PASSWORD: energyuserpass # Create a non-root user
+    ports:
+      - "3307:3306" # Host port is 3307, container port is 3306
+    volumes:
+      - db_data:/var/lib/mysql # Persist MySQL data on Windows host
+    networks:
+      - energy-network
+
+  app:
+    image: energy-p2p
+    container_name: energy-p2p-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/energy?autoReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: energyuser # Use the non-root user
+      SPRING_DATASOURCE_PASSWORD: energyuserpass # Use the non-root user password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - energy-network
+
+networks:
+  energy-network:
+    driver: bridge
+
+volumes:
+  db_data:

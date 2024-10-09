@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "2015e22b-0fb5-4a2c-886b-bf5c29ad2369",
+		"name": "energyP2P",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32313690"
+	},
+	"item": [
+		{
+			"name": "registerUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"new block 8\",\r\n  \"address\": \"123 Blue Energy Ave\",\r\n  \"email\":\"o@om22dfs22.casom\",\r\n  \"energyExchangeCapability\": \"SELLER\",\r\n  \"industryType\": \"HEAVY\",\r\n  \"initialBalance\": 10000.0,\r\n  \"gridId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "getTransactionDetails",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"new 2\",\r\n  \"address\": \"123 Blue Energy Ave\",\r\n  \"email\":\"omm@omm.com\",\r\n  \"energyExchangeCapability\": \"SELLER\",\r\n  \"industryType\": \"HEAVY\",\r\n  \"initialBalance\": 10000.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/transaction/3qjEPKXk4qJifhzLURqgo4n6v5X9q2kSSZ1TDd31JxUdU1Z9mv2KK1WLKa9nFAxFeVRnK42Rq4dfymPa79PfAQUZ"
+			},
+			"response": []
+		},
+		{
+			"name": "addGrid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"location\": \"City Center\",\r\n  \"pincode\": 123456,\r\n  \"adminUserId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/grids/add"
+			},
+			"response": []
+		},
+		{
+			"name": "getGrid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"location\": \"City Center\",\r\n  \"pincode\": 123456,\r\n  \"adminUserId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/grids/1"
+			},
+			"response": []
+		},
+		{
+			"name": "addBuyRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"buyerId\": 5,\r\n  \"energyUnits\": 10,\r\n  \"maxPricePerUnit\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/trade/buy"
+			},
+			"response": []
+		},
+		{
+			"name": "addSellRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sellerId\": 3,\r\n  \"energyUnits\": 20,\r\n  \"pricePerUnit\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/trade/sell"
+			},
+			"response": []
+		},
+		{
+			"name": "endOfDay",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/endOfDay"
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/users/17"
+			},
+			"response": []
+		},
+		{
+			"name": "checkIfUserExists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/users/checkIfUserExists/o@om22df2.casom"
+			},
+			"response": []
+		},
+		{
+			"name": "getBuyRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/buy/4"
+			},
+			"response": []
+		},
+		{
+			"name": "getTransactionByGrid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/transaction/grid/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getTransactionById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/transaction/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getSellRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/sell/1"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllSellRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/sell/all"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBuyRequests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/trade/buy/all"
+			},
+			"response": []
+		},
+		{
+			"name": "peakDemand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/analytics/peakDemand/1"
+			},
+			"response": []
+		},
+		{
+			"name": "peakGeneration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/analytics/peakGeneration/1"
+			},
+			"response": []
+		},
+		{
+			"name": "tradedEnergy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/analytics/tradedEnergy/1"
+			},
+			"response": []
+		}
+	]
+}
